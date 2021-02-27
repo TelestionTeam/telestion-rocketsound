@@ -1,0 +1,5 @@
+rootProject.name = 'RocketSound'
+
+gradle.ext.sourceCompatibility = '15'
+gradle.ext.targetCompatibility = '15'
+

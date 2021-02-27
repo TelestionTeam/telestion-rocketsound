@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+group 'de.jvpichowski.rocketsound'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = gradle.sourceCompatibility
+targetCompatibility = gradle.targetCompatibility
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/TelestionTeam/telestion/")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+}
+
+dependencies {
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+    implementation "io.vertx:vertx-core:4.0.2"
+    compile 'io.github.telestionteam:telestion-api:0.0.7'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
