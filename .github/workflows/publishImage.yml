@@ -22,6 +22,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DEPLOY_PACKAGES }}
           registry: docker.pkg.github.com
-          repository: telestionteam/rocketsound/rocketsound
+          repository: telestionteam/rocketsound
           tag_with_sha: true
 #          tag_with_sha: true
