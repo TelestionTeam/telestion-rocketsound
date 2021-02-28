@@ -37,9 +37,9 @@ public final class MockRocketPublisher extends AbstractVerticle {
 			//vertx.eventBus().publish(config.address,
 			//		new GpsData(3, 7, 4343345.0, -376.322, 42134894).json());
 			vertx.eventBus().publish(config.address, new DbResponse(NineDofData.class, Arrays.asList(new NineDofData(
-					new Accelerometer(0.47, 3.5, 1.0),
-					new Gyroscope(0.3, -7.2, -0.1),
-					new Magnetometer(0.4, 28, -0.33)).json())).json());
+					new Accelerometer(Math.random(), Math.random(), Math.random()),
+					new Gyroscope(Math.random(), Math.random(), Math.random()),
+					new Magnetometer(Math.random(), Math.random(), Math.random())).json())).json());
 			//vertx.eventBus().publish(config.address, new BaroData(
 			//		new Pressure(67773.3),
 			//		new Temperature(24.3),
