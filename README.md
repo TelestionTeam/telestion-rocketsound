@@ -5,7 +5,7 @@
 ### Published Release
 
 1. Create a personal github access token for reading packages
-2. Login to docker with: `docker login docker.pkg.github.com -u USER_NAME -p "ACCESS_TOKEN"`
+2. Login to docker with: `docker login docker.pkg.github.com`
 3. Run image with: `docker run -p 9870:9870 docker.pkg.github.com/telestionteam/rocketsound/telestion-rocketsound:latest`
 
 ### From Source
