@@ -10,9 +10,37 @@
       },
       {
         "name": "Random Position Publisher",
-        "verticle": "org.telestion.example.HelloWorld",
+        "verticle": "org.telestion.example.RandomPositionPublisher",
         "magnitude": 1,
         "config": {}
+      },
+      {
+        "name": "Eventbus Tcp Bridge",
+        "verticle": "org.telestion.core.connection.EventbusTcpBridge",
+        "magnitude": 1,
+        "config": {
+          "host": "localhost",
+          "port": 9870,
+          "inboundPermitted": [],
+          "outboundPermitted": ["org.telestion.example.RandomPositionPublisher/out#MockPos",
+          "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData"]
+        }
+      },
+      {
+        "name": "Web Server",
+        "verticle": "org.telestion.core.web.WebServer",
+        "magnitude": 1,
+        "config": {
+          "port": 8080
+        }
+      },
+      {
+        "name": "Mock Rocket Publisher",
+        "verticle": "de.jvpichowski.rocketsound.MockRocketPublisher",
+        "magnitude": 1,
+        "config": {
+          "address": "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData"
+        }
       }
     ]
   }
