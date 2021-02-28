@@ -4,8 +4,10 @@
 
 ### Published Release
 
-1. Login to docker with your github credentials or an access token: `docker login docker.pkg.github.com`
-2. Run image with: `docker run -p 9870:9870 docker.pkg.github.com/telestionteam/rocketsound/telestion-rocketsound:latest`
+1. Login to docker 
+   1. with your github credentials: `docker login docker.pkg.github.com`
+   2. with a github personal acces token: `docker login docker.pkg.github.com -u USER_NAME -p "ACCESS_TOKEN"`
+4. Run image with: `docker run -p 9870:9870 docker.pkg.github.com/telestionteam/rocketsound/telestion-rocketsound:latest`
 
 ### From Source
 
