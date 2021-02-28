@@ -1,6 +1,10 @@
 # RocketSound
 
+RocketSound is a student experiment for estimating sounding-rocket state based on sound measurements. 
+
 ## Installation
+
+RocketSound can be installed from source or with a docker image.
 
 ### Published Release
 
@@ -15,3 +19,7 @@
 2. Build project with: `./gradlew build`
 3. Build docker image with: `docker build -t telestion-rocketsound`
 4. Run docker image with: `docker run -p 9870:9870 telestion-rocketsound`
+
+## Running the User Interface
+
+To run the user interface follow the instructions in the dedicated [client repository](https://github.com/TelestionTeam/telestion-rocketsound-psc).
