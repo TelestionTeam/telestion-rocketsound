@@ -23,3 +23,11 @@ RocketSound can be installed from source or with a docker image.
 ## Running the User Interface
 
 To run the user interface follow the instructions in the dedicated [client repository](https://github.com/TelestionTeam/telestion-rocketsound-psc).
+
+## Contributors
+
+Thank you to all contributors of this repository:
+
+[![Contributors](https://contrib.rocks/image?repo=TelestionTeam/telestion-rocketsound)](https://github.com/TelestionTeam/telestion-rocketsound/graphs/contributors)
+
+Made with [contributors-img](https://contrib.rocks).
