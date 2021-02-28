@@ -1,5 +1,4 @@
 name: Publish Docker Image
-#on: [push]
 on:
   release:
     types: [published]
@@ -24,4 +23,4 @@ jobs:
           password: ${{ secrets.DEPLOY_PACKAGES }}
           registry: docker.pkg.github.com
           repository: telestionteam/rocketsound/telestion-rocketsound
-#          tag_with_sha: true
+          tag_with_sha: true
