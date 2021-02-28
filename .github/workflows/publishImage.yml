@@ -25,8 +25,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           always_pull: true
-          repository: telestionteam/rocketsound/telestion-rocketsound
-          cache_froms: telestionteam/rocketsound/telestion-rocketsound:latest
+          repository: telestionteam/telestion-rocketsound/telestion-rocketsound
+          cache_froms: telestionteam/telestion-rocketsound/telestion-rocketsound:latest
           tags: latest
           tag_with_ref: true
   #        tag_with_sha: true
