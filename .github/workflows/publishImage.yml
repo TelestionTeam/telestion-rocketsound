@@ -24,6 +24,11 @@ jobs:
           username: ${{ github.ACTOR }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: telestionteam/rocketsound/telestion-rocketsound
+          always_pull: true
+          repository: telestionteam/rocketsound
+          cache_froms: telestionteam/rocketsound:latest
+          tags: latest
+          tag_with_ref: true
           tag_with_sha: true
+          add_git_labels: true
 
