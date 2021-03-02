@@ -14,7 +14,7 @@ RocketSound can be installed from source or with a docker image.
 ### From Source
 
 1. Clone the repository
-2. Build project with: `./gradlew build`
+2. Build project with: `./gradlew assembleDist`
 3. Build docker image with: `docker build -t telestion-rocketsound .`
 4. Run docker image with: `docker run -p 9870:9870 -p 9871:9871 telestion-rocketsound`
 
