@@ -35,7 +35,9 @@
           "port": 9870,
           "inboundPermitted": [],
           "outboundPermitted": ["org.telestion.example.RandomPositionPublisher/out#MockPos",
-          "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData"]
+          "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData",
+            "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.BaroData",
+            "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.GpsData"]
         }
       }
     ]
