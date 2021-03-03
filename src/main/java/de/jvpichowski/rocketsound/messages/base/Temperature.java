@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.telestion.api.message.JsonMessage;
 
 // TODO: float not yet supported by vertx -> changed floats to double (Jan)
-public record Temperature(@JsonProperty double temp) implements JsonMessage {
+public record Temperature(@JsonProperty double temperature) implements JsonMessage {
 
 	@SuppressWarnings("unused")
 	public Temperature(){
