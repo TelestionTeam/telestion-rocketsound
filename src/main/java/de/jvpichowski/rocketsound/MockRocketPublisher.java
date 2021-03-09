@@ -54,10 +54,10 @@ public final class MockRocketPublisher extends AbstractVerticle {
 			).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.GpsData",
 			new DbResponse(GpsData.class, List.of(new GpsData(1, false, 49.70518+Math.random()*0.002, 9.89143+Math.random()*0.002, System.currentTimeMillis()).json())).json());
-			var stateIdx = (int)(Math.random()*5);
+			var stateIdx = (int)(Math.random()*6);
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.FlightState",
 			new DbResponse(FlightState.class, List.of(new FlightState(stateIdx,
-					new String[]{"-","preparation, flight, apogee, landing, recovery"}[stateIdx]).json())).json());
+					new String[]{"-","preparation", "flight", "apogee", "landing", "recovery"}[stateIdx]).json())).json());
 
 /*
 			//vertx.eventBus().publish(config.address, new Amplitude(3.7).json());
