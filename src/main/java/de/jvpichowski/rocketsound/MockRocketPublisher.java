@@ -33,27 +33,31 @@ public final class MockRocketPublisher extends AbstractVerticle {
 
 		vertx.setPeriodic(Duration.ofSeconds(1).toMillis(), h -> {
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.sound.Amplitude",
-			new DbResponse(Amplitude.class, List.of(new Amplitude().json())).json());
+			new DbResponse(Amplitude.class, List.of(new Amplitude(Math.random(), Math.random(), Math.random()).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.sound.Spectrum",
-			new DbResponse(Spectrum.class, List.of(new Spectrum().json())).json());
+			new DbResponse(Spectrum.class, List.of(new Spectrum(0, 10, new double[]{
+					Math.random(), Math.random(), Math.random(), Math.random(), Math.random(),
+					Math.random(), Math.random(), Math.random(), Math.random(), Math.random()}).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.Velocity",
-			new DbResponse(Velocity.class, List.of(new Velocity().json())).json());
+			new DbResponse(Velocity.class, List.of(new Velocity(Math.random(), Math.random()).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData",
 			new DbResponse(NineDofData.class, List.of(new NineDofData(
-					new Accelerometer(),
-					new Gyroscope(),
-					new Magnetometer()
+					new Accelerometer(Math.random(), Math.random(), Math.random()),
+					new Gyroscope(Math.random(), Math.random(), Math.random()),
+					new Magnetometer(Math.random(), Math.random(), Math.random())
 			).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.BaroData",
 			new DbResponse(BaroData.class, List.of(new BaroData(
-					new Pressure(),
-					new Temperature(),
-					new Altitude()
+					new Pressure(Math.random()),
+					new Temperature(Math.random()),
+					new Altitude(Math.random())
 			).json())).json());
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.GpsData",
-			new DbResponse(GpsData.class, List.of(new GpsData().json())).json());
+			new DbResponse(GpsData.class, List.of(new GpsData(1, false, 49.70518+Math.random()*0.002, 9.89143+Math.random()*0.002, System.currentTimeMillis()).json())).json());
+			var stateIdx = (int)(Math.random()*5);
 			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.FlightState",
-			new DbResponse(FlightState.class, List.of(new FlightState().json())).json());
+			new DbResponse(FlightState.class, List.of(new FlightState(stateIdx,
+					new String[]{"preparation, flight, apogee, landing, recovery"}[stateIdx]).json())).json());
 
 /*
 			//vertx.eventBus().publish(config.address, new Amplitude(3.7).json());
