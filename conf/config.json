@@ -35,10 +35,40 @@
           "port": 9870,
           "inboundPermitted": [],
           "outboundPermitted": ["org.telestion.example.RandomPositionPublisher/out#MockPos",
-          "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData",
-            "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.BaroData",
-            "org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.GpsData"]
+          "org.telestion.core.database.MongoDatabaseService/out#save"]
         }
+      },
+      {
+        "name": "Data Listener",
+        "verticle": "org.telestion.core.database.DataListener",
+        "magnitude": 1,
+        "config": {
+          "listeningAddresses": "de.jvpichowski.rocketsound.TcpDataConverter/out"
+        }
+      },
+      {
+        "name": "Data Service",
+        "verticle": "org.telestion.core.database.DataService",
+        "magnitude": 1,
+        "config": {}
+      },
+      {
+        "name": "MongoDB Service",
+        "verticle": "org.telestion.core.database.MongoDatabaseService",
+        "magnitude": 1,
+        "config": {
+          "dbConfig": {
+            "db_name": "raketenpraktikum",
+            "useObjectId": true
+          },
+          "dbPoolName": "raketenpraktikumPool"
+        }
+      },
+      {
+        "name": "Mock Publisher",
+        "verticle": "de.jvpichowski.rocketsound.MockRocketPublisher",
+        "magnitude": 1,
+        "config": {}
       }
     ]
   }

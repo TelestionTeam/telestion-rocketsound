@@ -6,7 +6,7 @@ import org.telestion.api.message.JsonMessage;
 public record Gyroscope(@JsonProperty double x, @JsonProperty double y, @JsonProperty double z) implements JsonMessage {
 
 	@SuppressWarnings("unused")
-	private Gyroscope() {
+	public Gyroscope() {
 		this(0.0, 0.0, 0.0);
 	}
 }

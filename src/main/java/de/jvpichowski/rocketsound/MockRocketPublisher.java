@@ -12,6 +12,7 @@ import org.telestion.core.database.DbResponse;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public final class MockRocketPublisher extends AbstractVerticle {
 
@@ -31,6 +32,30 @@ public final class MockRocketPublisher extends AbstractVerticle {
 		config = Config.get(forcedConfig, config(), Configuration.class);
 
 		vertx.setPeriodic(Duration.ofSeconds(1).toMillis(), h -> {
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.sound.Amplitude",
+			new DbResponse(Amplitude.class, List.of(new Amplitude().json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.sound.Spectrum",
+			new DbResponse(Spectrum.class, List.of(new Spectrum().json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.Velocity",
+			new DbResponse(Velocity.class, List.of(new Velocity().json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.NineDofData",
+			new DbResponse(NineDofData.class, List.of(new NineDofData(
+					new Accelerometer(),
+					new Gyroscope(),
+					new Magnetometer()
+			).json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.BaroData",
+			new DbResponse(BaroData.class, List.of(new BaroData(
+					new Pressure(),
+					new Temperature(),
+					new Altitude()
+			).json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.GpsData",
+			new DbResponse(GpsData.class, List.of(new GpsData().json())).json());
+			vertx.eventBus().publish("org.telestion.core.database.MongoDatabaseService/out#save/de.jvpichowski.rocketsound.messages.base.FlightState",
+			new DbResponse(FlightState.class, List.of(new FlightState().json())).json());
+
+/*
 			//vertx.eventBus().publish(config.address, new Amplitude(3.7).json());
 			//vertx.eventBus().publish(config.address,
 			//		new Spectrum(2.7, 1004.3, new double[]{2.6, 0.0, 3.5, 100, 980.5}).json());
@@ -44,6 +69,8 @@ public final class MockRocketPublisher extends AbstractVerticle {
 			//		new Pressure(67773.3),
 			//		new Temperature(24.3),
 			//		new Altitude(287.0)).json());
+
+ */
 		});
 		startPromise.complete();
 	}
