@@ -3,10 +3,9 @@ package de.jvpichowski.rocketsound.messages.sound;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.telestion.api.message.JsonMessage;
 
-// TODO: float not yet supported by vertx -> changed floats to double (Jan)
-public record Amplitude(@JsonProperty double amplitude) implements JsonMessage {
+public record Amplitude(@JsonProperty double amplitude, @JsonProperty double freq1, @JsonProperty double freq2) implements JsonMessage {
 	@SuppressWarnings("unused")
 	public Amplitude(){
-		this(0.0);
+		this(0.0, 0.0, 0.0);
 	}
 }

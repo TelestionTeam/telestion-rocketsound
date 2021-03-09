@@ -63,6 +63,12 @@
           },
           "dbPoolName": "raketenpraktikumPool"
         }
+      },
+      {
+        "name": "Mock Publisher",
+        "verticle": "de.jvpichowski.rocketsound.MockRocketPublisher",
+        "magnitude": 1,
+        "config": {}
       }
     ]
   }
